@@ -1,34 +1,26 @@
 import { useState } from 'react';
+import Category_80 from './components/Category_80';
 import Menu_80 from './components/Menu_80';
 import items from './data';
 
+const allCategories = ['all', 'breakfast', 'lunch', 'shakes', 'dinner'];
+
 const App_80 = () => {
   const [menuItems, setMenuItems] = useState(items);
+  const [categories, setCategories]= useState(allCategories);
   
   // console.log('menuItems', menuItems);
   return (
-    <section class="menu">
+    <section className="menu">
     {/* title */}
-    <div class="title">
+    <div className="title">
       <h2>our menu</h2>
-      <div class="underline"></div>
+      <div className="underline"></div>
     </div>
     {/* filter buttons */}
-    <div className="btn-container">
-    <button type="button" className="filter-btn" data-id="all">all</button>
-    <button type="button" className="filter-btn" data-id="breakfast">
-          breakfast
-        </button>
-    <button type="button" className="filter-btn" data-id="lunch">lunch</button>
-    <button type="button" className="filter-btn" data-id="shakes">
-          shakes
-        </button>
-    <button type="button" class="filter-btn" data-id="dinner">
-          dinner
-        </button>
-    </div>
+    <Category_80 categories={categories}/>
     {/*menu items*/}
-   <Menu_80 items={menuItems}/>
+    <Menu_80 items={menuItems}/>
       
        {/* javascript */}
     <script src="app.js"></script>
